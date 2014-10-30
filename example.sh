@@ -24,6 +24,7 @@ update()
                 clear
                 date
                 echo "${COUNT}"
+                echo "Use ctrl-c to exit."
                 sleep .05
         done
 }
