@@ -19,7 +19,7 @@ update()
         trap "move_down;" $LEFT
         trap "move_up;" $RIGHT
 
-        # Background loop: outputs date and
+        # Background loop: outputs date and value of 'COUNT'
         while true; do
                 clear
                 date
@@ -28,7 +28,7 @@ update()
         done
 }
 
-read()
+move()
 {
         # Traps ctrl-c so you can escape the infinite loop. Returns to main program.
         trap "return;" SIGINT SIGQUIT
@@ -58,7 +58,7 @@ move_up()
 # Run update in the background and read in the foreground.
 update & 
 game_pid=$!
-read
+move
 
 # This kill command is necessary if the background process is still running an infinite loop.
 kill -9 $game_pid
